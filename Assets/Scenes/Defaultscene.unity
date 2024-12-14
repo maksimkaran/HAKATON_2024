@@ -763,6 +763,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   rotationSpeed: 600
+  animator: {fileID: 198417469}
+  isKeyHeldDown: 0
 --- !u!61 &198417465
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -800,9 +802,9 @@ BoxCollider2D:
   m_Offset: {x: -0.036570787, y: 0.37924784}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.68421054, y: -1.0434783}
-    oldSize: {x: 0.19, y: 0.23}
-    newSize: {x: 0.19, y: 0.22}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -885,7 +887,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.19, y: 0.22}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -916,7 +918,7 @@ Animator:
   m_GameObject: {fileID: 198417463}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: -8848580926372569025, guid: 29ee44f04fe5eb34e8039b54b8e74190, type: 3}
+  m_Controller: {fileID: 9100000, guid: 3151038042300e64b8ad7eee586677e6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
