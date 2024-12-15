@@ -1,5 +1,7 @@
 using System;
-using System.Diagnostics;
+using System.Security.Cryptography;
+
+//using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
 public class SpaceshipLanding : MonoBehaviour
@@ -9,8 +11,7 @@ public class SpaceshipLanding : MonoBehaviour
     public float gravityStopRadius = 15f;    // The radius where gravity stops
     public Canvas optionsCanvas; // Reference to the Canvas (to disable when closing)
     public Button button1; // Reference to Option 1 button
-    public Button button2; // Reference to Option 2 button
-    public Button button3; // Reference to Option 3 button
+    public Button button2; // Reference to Option 2 button// Reference to Option 3 button
     public BarFillAndDecrease scriptA;
     public Material_Manager materialA;
     public LayerMask affectedLayer;
@@ -19,7 +20,7 @@ public class SpaceshipLanding : MonoBehaviour
     {
         button1.onClick.AddListener(OnOption1Selected);
         button2.onClick.AddListener(OnOption2Selected);
-        button3.onClick.AddListener(OnOption3Selected);
+
     }
     // Option 1 button clicked
     void OnOption1Selected()
@@ -56,13 +57,7 @@ public class SpaceshipLanding : MonoBehaviour
         //CloseOptionsMenu();
     }
 
-    // Option 3 button clicked
-    void OnOption3Selected()
-    {
-        
-        CloseOptionsMenu();
-    }
-
+  
     // Close the options menu (disable the canvas)
     void CloseOptionsMenu()
     {
@@ -111,6 +106,7 @@ public class SpaceshipLanding : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("help");
         // Check if the other object has the tag "Player"
         if (other.CompareTag("Player"))
         {
@@ -132,11 +128,10 @@ public class SpaceshipLanding : MonoBehaviour
             optionsCanvas.enabled = true;
         }
     }
-    private void OnTriggerExit(Collider other)
+    void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
-            optionsCanvas.enabled = false;
-        }
+        optionsCanvas.enabled = false;
+        // Code to execute when another collider exits this trigger
+        Debug.Log("Exited Trigger: " + other.gameObject.name);
     }
 }
