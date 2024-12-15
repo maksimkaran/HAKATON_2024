@@ -5,8 +5,8 @@ public class manager_socre : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        PlayerPrefs.SetInt("junk", 0);
-        PlayerPrefs.SetInt("materials", 0);
+        PlayerPrefs.SetInt("junk", 20);
+        PlayerPrefs.SetInt("materials", 30);
         PlayerPrefs.SetFloat("speed", 0);
         PlayerPrefs.SetFloat("capacity", 0);
         PlayerPrefs.SetFloat("shooting", 0);

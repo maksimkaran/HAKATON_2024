@@ -39,7 +39,7 @@ public class SpaceshipLanding : MonoBehaviour
             price += price;
             
         }
-        CloseOptionsMenu();
+        //CloseOptionsMenu();
     }
 
     // Option 2 button clicked

@@ -157,7 +157,7 @@ MonoBehaviour:
   rate_of_fire: 1
   health: 50
   spriteRenderer: {fileID: 1580811240023749815}
-  moveSpeed: 1.5
+  moveSpeed: 1
   stopRadius: 5
   rb: {fileID: 1779727624924778516}
 --- !u!1 &7027349712026387918
