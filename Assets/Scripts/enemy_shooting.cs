@@ -17,7 +17,7 @@ public class enemy_shooting : MonoBehaviour
     {
         
         float distance = Vector2.Distance(transform.position, player.transform.position);
-        if (distance< 4)
+        if (distance< 10)
         {
             timer += Time.deltaTime;
             if (timer >= rate_of_fire)
