@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class player_movement : MonoBehaviour
 {
     // Speed of the spaceship
-    public float moveSpeed = 5f;
+    public float moveSpeed = 4f;
     public float rotationSpeed = 200f; // Speed of rotation (for turning)
     private bool isAnimating = false;
     public Animator animator;
@@ -14,6 +14,7 @@ public class player_movement : MonoBehaviour
 
     void Start()
     {
+        moveSpeed = PlayerPrefs.GetFloat("speed_multiplier", 1f);
         // Get the Rigidbody2D component attached to the spaceship
         rb = GetComponent<Rigidbody2D>();
 

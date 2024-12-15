@@ -11,6 +11,9 @@ public class manager_socre : MonoBehaviour
         PlayerPrefs.SetFloat("capacity", 0);
         PlayerPrefs.SetFloat("shooting", 0);
         PlayerPrefs.SetInt("zemlja_materials", 0);
+        PlayerPrefs.SetFloat("fire_rate", 0.5f);
+        PlayerPrefs.SetFloat("speed_multiplier", 4f);
+        PlayerPrefs.SetInt("add_hp", 20);
 
     }
     private int counter = 20;  // Starting value of the integer
