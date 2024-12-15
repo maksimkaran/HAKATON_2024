@@ -1,15 +1,20 @@
+using System;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
-public class PlanetGravity : MonoBehaviour
+public class SpaceshipLanding : MonoBehaviour
 {
     public float gravityStrength = 9.81f;    // The strength of gravity
     public float gravityRadius = 10f;        // The radius where gravity starts to affect objects
     public float gravityStopRadius = 15f;    // The radius where gravity stops
-    public GameObject optionsCanvas; // Reference to the Canvas (to disable when closing)
+    public Canvas optionsCanvas; // Reference to the Canvas (to disable when closing)
     public Button button1; // Reference to Option 1 button
     public Button button2; // Reference to Option 2 button
     public Button button3; // Reference to Option 3 button
-    public LayerMask affectedLayer;          // The layer containing objects affected by gravity (spaceship, etc.)
+    public BarFillAndDecrease scriptA;
+    public Material_Manager materialA;
+    public LayerMask affectedLayer;
+    int FactoryPrice = 20;// The layer containing objects affected by gravity (spaceship, etc.)
     private void Start()
     {
         button1.onClick.AddListener(OnOption1Selected);
@@ -19,28 +24,49 @@ public class PlanetGravity : MonoBehaviour
     // Option 1 button clicked
     void OnOption1Selected()
     {
-        Debug.Log("Option 1 Selected");
+        int price = 10;
+        int junk = PlayerPrefs.GetInt("junk", 0);
+        if (junk >= price)
+        {
+            junk = junk - price;
+            PlayerPrefs.SetInt("junk", junk);
+            materialA.Junk.text = junk.ToString();
+            scriptA = GameObject.Find("proccesing_counter").GetComponent<BarFillAndDecrease>();
+            scriptA.SetValue(price);
+            scriptA.Junk_Procesing();
+            Console.WriteLine("canvas button working");
+            price += price;
+            
+        }
         CloseOptionsMenu();
     }
 
     // Option 2 button clicked
     void OnOption2Selected()
     {
-        Debug.Log("Option 2 Selected");
-        CloseOptionsMenu();
+        int junk = PlayerPrefs.GetInt("junk", 0);
+        int prerada = junk;
+        junk = 0;
+        PlayerPrefs.SetInt("junk", junk);
+        Console.WriteLine(junk);
+        materialA.Junk.text = junk.ToString();
+        scriptA.SetValueMat(prerada,true);
+        scriptA.Junk_Procesing();
+
+        //CloseOptionsMenu();
     }
 
     // Option 3 button clicked
     void OnOption3Selected()
     {
-        Debug.Log("Option 3 Selected");
+        
         CloseOptionsMenu();
     }
 
     // Close the options menu (disable the canvas)
     void CloseOptionsMenu()
     {
-        optionsCanvas.SetActive(false);  // Hide the canvas when any option is selected
+        optionsCanvas.enabled = false;  // Hide the canvas when any option is selected
     }
     private void FixedUpdate()
     {
@@ -101,16 +127,16 @@ public class PlanetGravity : MonoBehaviour
             other.transform.rotation = Quaternion.Euler(0, 0, angle+-90);
             
             // Call your function when the objects touch
-            Debug.Log("Objects have entered the trigger area!");
+            
 
-            optionsCanvas.SetActive(true);
+            optionsCanvas.enabled = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            optionsCanvas.SetActive(false);
+            optionsCanvas.enabled = false;
         }
     }
 }

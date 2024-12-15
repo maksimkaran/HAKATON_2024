@@ -9,17 +9,17 @@ public class junk_script : MonoBehaviour
         {
             if (CompareTag("Screw"))
             {
-                Material_Manager.instance.Add_Mat1();
+                Material_Manager.instance.Add_Junk1();
                 Destroy(gameObject);
             }
             if (CompareTag("Panel"))
             {
-                Material_Manager.instance.Add_Mat2();
+                Material_Manager.instance.Add_Junk2();
                 Destroy(gameObject);
             }
             if (CompareTag("Foil"))
             {
-                Material_Manager.instance.Add_Mat5();
+                Material_Manager.instance.Add_Junk5();
                 Destroy(gameObject);
             }
         }
