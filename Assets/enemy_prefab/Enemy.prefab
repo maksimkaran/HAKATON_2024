@@ -154,11 +154,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 7598788930857131804, guid: 9dd867806757be74e9dd1624193f9c6f, type: 3}
   bulletPos: {fileID: 2272401639891066529}
-  rate_of_fire: 2
-  health: 100
+  rate_of_fire: 1
+  health: 50
   spriteRenderer: {fileID: 1580811240023749815}
   moveSpeed: 1.5
-  stopRadius: 4
+  stopRadius: 5
   rb: {fileID: 1779727624924778516}
 --- !u!1 &7027349712026387918
 GameObject:

@@ -36,7 +36,7 @@ public class enemy_shooting : MonoBehaviour
     private IEnumerator RevertColorBack()
     {
         // Wait for 0.5 seconds (adjust this value as needed)
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(7f);
 
         // Revert the color back to the original color
         spriteRenderer.color = originalColor;
